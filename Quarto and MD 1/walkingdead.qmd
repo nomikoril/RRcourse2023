@@ -13,8 +13,34 @@ execute:
 
 ***The Walking Dead*** is an American [post-apocalyptic](https://en.wikipedia.org/wiki/Apocalyptic_and_post-apocalyptic_fiction "Apocalyptic and post-apocalyptic fiction") [horror](https://en.wikipedia.org/wiki/Horror_fiction "Horror fiction") [drama](https://en.wikipedia.org/wiki/Drama_(film_and_television) "Drama (film and television)") television series based on the [comic book series of the same name](https://en.wikipedia.org/wiki/The_Walking_Dead_(comic_book) "The Walking Dead (comic book)") by [Robert Kirkman](https://en.wikipedia.org/wiki/Robert_Kirkman "Robert Kirkman"), [Tony Moore](https://en.wikipedia.org/wiki/Tony_Moore_(artist) "Tony Moore (artist)"), and [Charlie Adlard](https://en.wikipedia.org/wiki/Charlie_Adlard "Charlie Adlard")---together forming the core of [*The Walking Dead* franchise](https://en.wikipedia.org/wiki/The_Walking_Dead_(franchise) "The Walking Dead (franchise)"). The series features a large [ensemble cast](https://en.wikipedia.org/wiki/Ensemble_cast "Ensemble cast") as survivors of a [zombie apocalypse](https://en.wikipedia.org/wiki/Zombie_apocalypse "Zombie apocalypse") trying to stay alive under near-constant threat of attacks from zombies known as "walkers" (among other nicknames). With the collapse of modern civilization, these survivors must confront other human survivors who have formed groups and communities with their own sets of laws and morals, sometimes leading to open, hostile conflict between them. The series is the first television series within [*The Walking Dead* franchise](https://en.wikipedia.org/wiki/The_Walking_Dead_(franchise) "The Walking Dead (franchise)").
 
-![The Walking Dead Season 1 Poster](C:/Users/nomin/OneDrive/Desktop/DSBA/4.2.%20Reproducible%20Research/Lab%204/RRcourse2023/Quarto%20and%20MD%201/TWD_pic1.jpg)
+![The Walking Dead Poster](C:/Users/nomin/OneDrive/Desktop/DSBA/4.2.%20Reproducible%20Research/Lab%204/RRcourse2023/Quarto%20and%20MD%201/TWD_pic1.jpg)
 
 #### Ratings
 
-The Walking Dead TV Series first aired on October 31th of 2010 and the last episode aired on November 20th of 2022. Overall series got **8.1/10** from IMDb, **79%** from Rotten Tomatoes and **4/5** from Common Sense Media.
+The Walking Dead TV Series has 11 seasons it first aired on October 31th of 2010 and the last episode aired on November 20th of 2022. Overall series got **8.1/10** from IMDb, **79%** from Rotten Tomatoes and **4/5** from Common Sense Media.
+
+| Season | Episodes |   First aired    |    Last aired     |
+|:-------|:--------:|:----------------:|:-----------------:|
+| 1      |    6     | October 31, 2010 | December 5, 2010  |
+| 2      |    13    | October 16, 2011 |  March 18, 2012   |
+| 3      |    16    | October 14, 2012 |  March 31, 2013   |
+| 4      |    16    | October 13, 2013 |  March 30, 2014   |
+| 5      |    16    | October 12, 2014 |  March 29, 2015   |
+| 6      |    16    | October 11, 2015 |   April 3, 2016   |
+| 7      |    16    | October 23, 2016 |   April 2, 2017   |
+| 8      |    16    | October 22, 2017 |  April 15, 2018   |
+| 9      |    16    | October 7, 2018  |  March 31, 2019   |
+| 10     |    22    | October 6, 2019  |   April 4, 2021   |
+| 11     |    24    | August 22, 2021  | November 20, 2022 |
+
+#### Viewership
+
+During its first season, *The Walking Dead* attracted between four and six million viewers.^[\[275\]](https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-Kirsch-275)^ Viewership began to increase in its second season. During seasons three to seven, it attracted ten to seventeen million viewers.^[\[275\]](https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-Kirsch-275)^ In 2012, during its third season, it became the first cable series in television history to have the highest total viewership of any series during the fall season among 18- to 49-year-old adults.^[\[275\]](https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-Kirsch-275)[\[276\]](https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-amc_ratings-276)^ In 2014, total viewership for the show's [fifth-season premiere](https://en.wikipedia.org/wiki/No_Sanctuary_(The_Walking_Dead) "No Sanctuary (The Walking Dead)") was 17.3 million, making it the most-watched series episode in cable history.^[\[277\]](https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-277)[\[278\]](https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-s5_premiere-278)^ In 2016, a [*New York Times*](https://en.wikipedia.org/wiki/New_York_Times "New York Times") study of the 50 television series with the most [Facebook likes](https://en.wikipedia.org/wiki/Facebook_Like "Facebook Like") found that like most other zombie series, *The Walking Dead* "is most popular in rural areas, particularly southern Texas and eastern Kentucky".^[\[279\]](https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-katz20161227-279)^ Ratings began to decline during season seven and have continued to steadily drop, which was blamed on a variety of factors, including Rick's presumed death. By the end of season nine, fewer viewers were watching than at any time since the show's first season.^\[280\]^
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+avg_viewer<-data.frame(season=c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11), avg_viewer=c(5.24, 6.90, 10.75, 13.33, 14.38, 13.15, 11.35, 7.82, 4.95, 3.04, 1.69))
+
+library(ggplot2)
+
+ggplot(avg_viewer, aes(x=season, y=avg_viewer))+geom_bar(stat="identity")+theme_minimal()
+```
