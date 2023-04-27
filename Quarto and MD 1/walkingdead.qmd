@@ -42,5 +42,15 @@ avg_viewer<-data.frame(season=c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11), avg_viewer=c
 
 library(ggplot2)
 
-ggplot(avg_viewer, aes(x=season, y=avg_viewer))+geom_bar(stat="identity")+theme_minimal()
+ggplot(avg_viewer, aes(x=season, y=avg_viewer))+geom_bar(stat="identity")+theme_minimal()+ ggtitle("Average Viewership by Season")+xlab("Seasons")+ylab("Average Viewers in Million")
+```
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+library(readxl)
+library(scales)
+
+views_episodes <- read_excel("TWD_views_episodes.xlsx")
+views_episodes$season<-factor(views_episodes$season, ordered = TRUE, levels = c("1", "2","3", "4", "5", "6", "7", "8", "9", "10", "11") )
+
+ggplot(views_episodes, aes(x=no, y=viewer_M, fill=season))+geom_bar(stat="identity")+ ggtitle("Average Viewership by Episodes")+xlab("Episodes")+ylab("Viewers in Million")+scale_x_continuous(expand = c(0, 0), breaks = seq(1,177,10)) + scale_y_continuous(expand = c(0, 0))+geom_text(data=views_episodes[views_episodes$episode==1 |views_episodes$episode==5 | views_episodes$episode==10 | views_episodes$episode==16,], aes(label=episode), vjust=-0.3, size=2)+theme(legend.position = "bottom",  legend.margin = margin(0, 0, 0, 0))+ guides(fill = guide_legend(nrow = 1))
 ```
