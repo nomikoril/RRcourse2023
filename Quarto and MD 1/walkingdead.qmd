@@ -52,5 +52,17 @@ library(scales)
 views_episodes <- read_excel("TWD_views_episodes.xlsx")
 views_episodes$season<-factor(views_episodes$season, ordered = TRUE, levels = c("1", "2","3", "4", "5", "6", "7", "8", "9", "10", "11") )
 
-ggplot(views_episodes, aes(x=no, y=viewer_M, fill=season))+geom_bar(stat="identity")+ ggtitle("Average Viewership by Episodes")+xlab("Episodes")+ylab("Viewers in Million")+scale_x_continuous(expand = c(0, 0), breaks = seq(1,177,10)) + scale_y_continuous(expand = c(0, 0))+geom_text(data=views_episodes[views_episodes$episode==1 |views_episodes$episode==5 | views_episodes$episode==10 | views_episodes$episode==16,], aes(label=episode), vjust=-0.3, size=2)+theme(legend.position = "bottom",  legend.margin = margin(0, 0, 0, 0))+ guides(fill = guide_legend(nrow = 1))
+ggplot(views_episodes, aes(x=no, y=viewer_M, fill=season))+geom_bar(stat="identity")+ ggtitle("Viewership by Episodes")+xlab("Episodes")+ylab("Viewers in Million")+scale_x_continuous(expand = c(0, 0), breaks = seq(1,177,10)) + scale_y_continuous(expand = c(0, 0))+geom_text(data=views_episodes[views_episodes$episode==1 |views_episodes$episode==5 | views_episodes$episode==10 | views_episodes$episode==16,], aes(label=episode), vjust=-0.3, size=2)+theme(legend.position = "bottom",  legend.margin = margin(0, 0, 0, 0))+ guides(fill = guide_legend(nrow = 1))
 ```
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+library(dplyr)
+max_view<-views_episodes %>% select(viewer_M) %>% summarise(max=max(viewer_M))
+ 
+max_season=views_episodes %>% filter(viewer_M==max_view$max) %>% select(season)
+
+max_episode=views_episodes %>% filter(viewer_M==max_view$max) %>% select(episode)
+
+```
+
+The most viewed episode of the series is `r max_view$max` from season `r max_season$season` and `r max_episode$episode` episode.
