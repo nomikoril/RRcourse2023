@@ -22,6 +22,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -31,10 +94,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="walkingdead_2_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="walkingdead_2_files/libs/quarto-html/anchor.min.js"></script>
 <link href="walkingdead_2_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="walkingdead_2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="walkingdead_2_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="walkingdead_2_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="walkingdead_2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="walkingdead_2_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="walkingdead_2_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <style>html{ scroll-behavior: smooth; }</style>
 
 
@@ -92,6 +155,14 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r warning=FALSE, message=FALSE}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quarto)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <section id="the-walking-dead-tv-series" class="level1">
 <h1><em>The Walking Dead (TV series)</em></h1>
 <section id="description" class="level2">
@@ -191,12 +262,12 @@ ul.task-list li input[type="checkbox"] {
 <p>During its first season, <em>The Walking Dead</em> attracted between four and six million viewers.<sup><a href="https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-Kirsch-275">[275]</a></sup> Viewership began to increase in its second season. During seasons three to seven, it attracted ten to seventeen million viewers.<sup><a href="https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-Kirsch-275">[275]</a></sup> In 2012, during its third season, it became the first cable series in television history to have the highest total viewership of any series during the fall season among 18- to 49-year-old adults.<sup><a href="https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-Kirsch-275">[275]</a><a href="https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-amc_ratings-276">[276]</a></sup> In 2014, total viewership for the show’s <a href="https://en.wikipedia.org/wiki/No_Sanctuary_(The_Walking_Dead)" title="No Sanctuary (The Walking Dead)">fifth-season premiere</a> was 17.3 million, making it the most-watched series episode in cable history.<sup><a href="https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-277">[277]</a><a href="https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-s5_premiere-278">[278]</a></sup> In 2016, a <a href="https://en.wikipedia.org/wiki/New_York_Times" title="New York Times"><em>New York Times</em></a> study of the 50 television series with the most <a href="https://en.wikipedia.org/wiki/Facebook_Like" title="Facebook Like">Facebook likes</a> found that like most other zombie series, <em>The Walking Dead</em> “is most popular in rural areas, particularly southern Texas and eastern Kentucky”.<sup><a href="https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-katz20161227-279">[279]</a></sup> Ratings began to decline during season seven and have continued to steadily drop, which was blamed on a variety of factors, including Rick’s presumed death. By the end of season nine, fewer viewers were watching than at any time since the show’s first season.<sup>[280]</sup></p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="walkingdead_2_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<p><img src="walkingdead_2_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="walkingdead_2_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<p><img src="walkingdead_2_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">

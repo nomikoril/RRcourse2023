@@ -15,11 +15,13 @@ execute:
 title-block-banner: true 
 smooth-scroll: true
 latex-tinytex: false
+code-fold: true
+theme: solar
 ---
 
 
 
-```{r}
+```{r warning=FALSE, message=FALSE}
 library(quarto)
 ```
 # *The Walking Dead (TV series)*
