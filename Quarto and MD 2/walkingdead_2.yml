@@ -1,0 +1,27 @@
+title: "TV-series"
+author: "Nomin Batbayar"
+date: today
+format: 
+  html:
+    toc: true
+    toc-depth: 2
+    toc-title: Contents
+    toc-location: left
+    theme: solar
+    fontsize: 1.1em
+    linestretch: 1.7
+  pdf:
+    documentclass: report    
+    toc: true
+    toc-depth: 2
+    toc-title: Contents
+    number-sections: true
+    colorlinks: true
+execute:
+  echo: fenced
+title-block-banner: true 
+smooth-scroll: true
+latex-tinytex: false
+code-fold: true
+linkcolor: white;
+keep-md: true

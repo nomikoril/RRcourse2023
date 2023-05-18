@@ -1,5 +1,5 @@
 ---
-title: "Quarto"
+title: "TV-series"
 author: "Nomin Batbayar"
 date: today
 format: 
@@ -8,17 +8,25 @@ format:
     toc-depth: 2
     toc-title: Contents
     toc-location: left
-  pdf:    
-    default
+    theme: solar
+    fontsize: 1.1em
+    linestretch: 1.7
+  pdf:
+    documentclass: report    
+    toc: true
+    toc-depth: 2
+    toc-title: Contents
+    number-sections: true
+    colorlinks: true
 execute:
   echo: fenced
 title-block-banner: true 
 smooth-scroll: true
 latex-tinytex: false
 code-fold: true
-theme: solar
+linkcolor: white;
+keep-md: true
 ---
-
 
 
 ```{r warning=FALSE, message=FALSE}
@@ -54,7 +62,12 @@ The Walking Dead TV Series has 11 seasons it first aired on October 31th of 2010
 
 During its first season, *The Walking Dead* attracted between four and six million viewers.^[\[275\]](https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-Kirsch-275)^ Viewership began to increase in its second season. During seasons three to seven, it attracted ten to seventeen million viewers.^[\[275\]](https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-Kirsch-275)^ In 2012, during its third season, it became the first cable series in television history to have the highest total viewership of any series during the fall season among 18- to 49-year-old adults.^[\[275\]](https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-Kirsch-275)[\[276\]](https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-amc_ratings-276)^ In 2014, total viewership for the show's [fifth-season premiere](https://en.wikipedia.org/wiki/No_Sanctuary_(The_Walking_Dead) "No Sanctuary (The Walking Dead)") was 17.3 million, making it the most-watched series episode in cable history.^[\[277\]](https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-277)[\[278\]](https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-s5_premiere-278)^ In 2016, a [*New York Times*](https://en.wikipedia.org/wiki/New_York_Times "New York Times") study of the 50 television series with the most [Facebook likes](https://en.wikipedia.org/wiki/Facebook_Like "Facebook Like") found that like most other zombie series, *The Walking Dead* "is most popular in rural areas, particularly southern Texas and eastern Kentucky".^[\[279\]](https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)#cite_note-katz20161227-279)^ Ratings began to decline during season seven and have continued to steadily drop, which was blamed on a variety of factors, including Rick's presumed death. By the end of season nine, fewer viewers were watching than at any time since the show's first season.^\[280\]^
 
-```{r message=FALSE, warning=FALSE, echo=FALSE}
+
+::: {.panel-tabset}
+
+### Average Viewers in Million
+
+```{r message=FALSE, warning=FALSE}
 avg_viewer<-data.frame(season=c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11), avg_viewer=c(5.24, 6.90, 10.75, 13.33, 14.38, 13.15, 11.35, 7.82, 4.95, 3.04, 1.69))
 
 library(ggplot2)
@@ -62,7 +75,9 @@ library(ggplot2)
 ggplot(avg_viewer, aes(x=season, y=avg_viewer))+geom_bar(stat="identity")+theme_minimal()+ ggtitle("Average Viewership by Season")+xlab("Seasons")+ylab("Average Viewers in Million")
 ```
 
-```{r message=FALSE, warning=FALSE, echo=FALSE}
+### Viewers
+
+```{r message=FALSE, warning=FALSE}
 library(readxl)
 library(scales)
 
@@ -72,7 +87,10 @@ views_episodes$season<-factor(views_episodes$season, ordered = TRUE, levels = c(
 ggplot(views_episodes, aes(x=no, y=viewer_M, fill=season))+geom_bar(stat="identity")+ ggtitle("Viewership by Episodes")+xlab("Episodes")+ylab("Viewers in Million")+scale_x_continuous(expand = c(0, 0), breaks = seq(1,177,10)) + scale_y_continuous(expand = c(0, 0))+geom_text(data=views_episodes[views_episodes$episode==1 |views_episodes$episode==5 | views_episodes$episode==10 | views_episodes$episode==16,], aes(label=episode), vjust=-0.3, size=2)+theme(legend.position = "bottom",  legend.margin = margin(0, 0, 0, 0))+ guides(fill = guide_legend(nrow = 1))
 ```
 
-```{r message=FALSE, warning=FALSE, echo=FALSE}
+:::
+
+
+```{r message=FALSE, warning=FALSE}
 library(dplyr)
 max_view<-views_episodes %>% select(viewer_M) %>% summarise(max=max(viewer_M))
  
