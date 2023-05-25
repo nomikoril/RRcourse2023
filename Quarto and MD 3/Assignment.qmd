@@ -9,6 +9,15 @@ output: html_document
 load("../Data/season_1.RData")
 ```
 
+```{r}
+quarto_render("QMD_class_3_4.qmd", execute_params = list(
+  year = 2017,
+  region = "Asia",
+  printcode = FALSE,
+  data = "file.csv"
+), output_file = paste0(“Report-“, params$region, “-“, params$year, “.html”)))
+```
+
 # Game of Thrones - Season 1 summary in numbers
 
 ### __(*Warning:* spoilers ahead)__
