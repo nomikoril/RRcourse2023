@@ -1,0 +1,102 @@
+---
+title: "Meta analysis of Toys"
+author: "Nomin"
+date: today
+format:  
+  html:
+    theme: lumen
+    toc: true
+    toc_float: true
+title-block-banner: true
+execute:
+  echo: fenced
+---
+
+## Import library and data
+
+```{r warning=FALSE, message=FALSE}
+library(readxl)
+library(meta)
+library(dplyr)
+
+metaanalysis_data <- read_excel("C:/Users/nomin/OneDrive/Desktop/DSBA/4.2. Reproducible Research/Lab 4/RRcourse2023/13. Metaanalysis/data/metaanalysis_data.xlsx")
+
+```
+
+
+## Meta combining
+
+```{r}
+m.ass <- metacont(data=metaanalysis_data,
+                 n.e=metaanalysis_data$N_boys,
+                 mean.e=metaanalysis_data$Mean_boys_play_female,
+                 sd.e=metaanalysis_data$SD_boys_play_female,
+                 n.c=metaanalysis_data$N_boys,
+                 mean.c=metaanalysis_data$Mean_boys_play_male,
+                 sd.c=metaanalysis_data$SD_boys_play_male,
+                  
+                  studlab=paste(Study),
+                  comb.fixed = TRUE,
+                  comb.random = TRUE,
+)
+m.ass
+```
+
+
+```{r}
+
+m.ass %>% forest(sortvar=TE)
+
+```
+
+
+```{r}
+m.ass %>% funnel()
+
+```
+
+
+
+```{r}
+m.ass2 <- metacont(data=metaanalysis_data,
+                  n.e=metaanalysis_data$N_girls,
+                  mean.e=metaanalysis_data$Mean_girls_play_male,
+                  sd.e=metaanalysis_data$SD_girls_play_male,
+                  n.c=metaanalysis_data$N_girls,
+                  mean.c=metaanalysis_data$Mean_girls_play_female,
+                  sd.c=metaanalysis_data$SD_girls_play_female,
+                  
+                  studlab=paste(Study),
+                  comb.fixed = TRUE,
+                  comb.random = TRUE,
+)
+
+```
+
+
+```{r}
+
+m.ass2 %>% forest(sortvar=TE)
+
+```
+
+
+```{r}
+m.ass2 %>% funnel()
+
+```
+
+
+## What affected  the results
+
+```{r}
+m.ass %>% metareg(metaanalysis_data$`Female authors`+metaanalysis_data$`Neutral toys`)
+
+
+```
+
+
+```{r}
+m.ass2 %>% metareg(metaanalysis_data$`Female authors` + metaanalysis_data$Setting)
+
+```
