@@ -65,4 +65,4 @@ max_episode=views_episodes %>% filter(viewer_M==max_view$max) %>% select(episode
 
 ```
 
-The most viewed episode of the series is `r max_view$max` Million viewers in US and this episode was from season `r max_season$season` and `r max_episode$episode` episode.
+The most viewed episode of the series is `r max_view$max` Million viewers in US and this episode was from season `r max_season$season` and      episode.
